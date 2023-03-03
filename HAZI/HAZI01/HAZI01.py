@@ -14,13 +14,13 @@
 # In[332]:
 
 
-list = [1,2,3,4,5,6,7,8,9]
+#list = [1,2,3,4,5,6,7,8,9]
 
 def subset(input_list,start_index,end_index):
     subsetList = input_list[start_index:end_index]
     return subsetList
     
-subset(list,2,4)
+#subset(list,2,4)
 
 
 # In[2]:
@@ -35,13 +35,13 @@ subset(list,2,4)
 # In[39]:
 
 
-list = [1,2,3,4,5,6,7,8,9]
+#list = [1,2,3,4,5,6,7,8,9]
 
 def every_nth(input_list,step_size):
     nthList = input_list[::step_size]
     return nthList
     
-every_nth(list,2)
+#every_nth(list,2)
 
 
 # In[3]:
@@ -56,7 +56,7 @@ every_nth(list,2)
 # In[333]:
 
 
-list = [2,2,3,3,2,1]
+#list = [2,2,3,3,2,1]
 
 def unique(input_list):
     for i, x in enumerate(input_list):
@@ -68,7 +68,7 @@ def unique(input_list):
         if (existsUnique == True):
             return True
     return False                
-unique(list)
+#unique(list)
 
 
 # In[60]:
@@ -83,7 +83,7 @@ unique(list)
 # In[334]:
 
 
-list = [[1,2,3],[4,5,6],[7,8,9]]
+#list = [[1,2,3],[4,5,6],[7,8,9]]
 
 def flatten(input_list):
     flattenList = []
@@ -92,7 +92,7 @@ def flatten(input_list):
             flattenList.append(y)
     return flattenList
     
-flatten(list)
+#flatten(list)
 
 
 # In[5]:
@@ -107,9 +107,9 @@ flatten(list)
 # In[335]:
 
 
-list = [1,2,3,4,5,6,7,8,9]
-list2 = [10]
-list3 = [9,8,7,6,5,4,3,2,1]
+#list = [1,2,3,4,5,6,7,8,9]
+#list2 = [10]
+#list3 = [9,8,7,6,5,4,3,2,1]
 
 def merge_lists(*args):
     merge_List = []
@@ -118,7 +118,7 @@ def merge_lists(*args):
             merge_List.append(x)
     return merge_List
     
-merge_lists(list, list2, list3)
+#merge_lists(list, list2, list3)
 
 
 # In[6]:
@@ -134,7 +134,7 @@ merge_lists(list, list2, list3)
 # In[336]:
 
 
-list = [(1,2),(3,4),(5,6),(7,8),(9,10)]
+#list = [(1,2),(3,4),(5,6),(7,8),(9,10)]
 
 def reverse_tuples(input_list):
     reverseList = []
@@ -142,7 +142,7 @@ def reverse_tuples(input_list):
         reverseList.append(tuple[::-1])
     return reverseList
 
-reverse_tuples(list)
+#reverse_tuples(list)
 
 
 # In[7]:
@@ -157,7 +157,7 @@ reverse_tuples(list)
 # In[338]:
 
 
-list = [2,6,3,3,2,1,4,5,4,6]
+#list = [2,6,3,3,2,1,4,5,4,6]
 
 def remove_tuplicates(input_list):
     for i, x in enumerate(input_list):
@@ -166,7 +166,7 @@ def remove_tuplicates(input_list):
                 if (input_list[i] == input_list[j]):
                     input_list.pop(j)
     return input_list            
-remove_tuplicates(list)
+#remove_tuplicates(list)
 
 
 # In[ ]:
@@ -181,7 +181,7 @@ remove_tuplicates(list)
 # In[339]:
 
 
-list = [[1,2,3],[4,5,6],[7,8,9]]
+#list = [[1,2,3],[4,5,6],[7,8,9]]
 
 def transpose(input_list):
     transposeList = [[0 for x in range(len(input_list))] for y in range(len(input_list[0]))] 
@@ -190,7 +190,7 @@ def transpose(input_list):
             transposeList[j][i] = y        
     return transposeList
     
-transpose(list)
+#transpose(list)
 
 
 # In[17]:
@@ -206,7 +206,7 @@ transpose(list)
 # In[341]:
 
 
-list = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+#list = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
 
 def split_into_chunks(input_list,chunk_size):
     listElementCount = 0
@@ -224,7 +224,7 @@ def split_into_chunks(input_list,chunk_size):
                 
     return splittedList
 
-split_into_chunks(list,2)
+#split_into_chunks(list,2)
 
 
 # In[9]:
@@ -238,7 +238,7 @@ split_into_chunks(list,2)
 
 # In[96]:
 
-
+""""
 dict1 = {
   "Brand": "Ford",
   "Model": "Mustang",
@@ -256,6 +256,7 @@ dict3 = {
   "Model": "Gtr",
   "Year": 1995
 }
+"""
 
 def merge_dicts(*dict):
     merged_Dict = []
@@ -264,7 +265,7 @@ def merge_dicts(*dict):
             merged_Dict.append([x,y])
     return merged_Dict
     
-merge_dicts(dict1, dict2, dict3)
+#merge_dicts(dict1, dict2, dict3)
 
 
 # In[10]:
@@ -280,7 +281,7 @@ merge_dicts(dict1, dict2, dict3)
 # In[342]:
 
 
-list = [1,2,3,4,5,6,7,8,9]
+#list = [1,2,3,4,5,6,7,8,9]
 
 def by_parity(input_list):
     parityDict = {
@@ -293,7 +294,7 @@ def by_parity(input_list):
             parityDict["odd"].append(x)
     return parityDict
 
-by_parity(list)
+#by_parity(list)
 
 
 # In[84]:
@@ -309,11 +310,12 @@ by_parity(list)
 
 # In[343]:
 
-
+"""
 dict = {
         "some_key": [1,3,2,5],
         "another_key": [2,4,6,1],
         "another_key2": [2,7,9,1]}
+"""
 
 def mean_key_value(input_dict):
     meanDict = {}
@@ -321,5 +323,5 @@ def mean_key_value(input_dict):
         meanDict[item] = sum(input_dict[item]) / len(input_dict[item])
     return meanDict
 
-mean_key_value(dict)
+#mean_key_value(dict)
 

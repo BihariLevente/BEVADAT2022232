@@ -13,7 +13,7 @@
 # In[149]:
 
 
-list = [2,4,1]
+#list = [2,4,1]
 
 def contains_odd(input_list):
     for x in input_list:
@@ -21,7 +21,7 @@ def contains_odd(input_list):
             return True
     return False
     
-contains_odd(list)
+#contains_odd(list)
 
 
 # In[52]:
@@ -38,7 +38,7 @@ contains_odd(list)
 # In[107]:
 
 
-list = [1,3,1,3,2,1]
+#list = [1,3,1,3,2,1]
 def is_odd(input_list):
     bool_list = []   
     for x in input_list:
@@ -48,7 +48,7 @@ def is_odd(input_list):
             bool_list.append(False)
     return bool_list
             
-is_odd(list)
+#is_odd(list)
 
 
 # In[69]:
@@ -64,15 +64,15 @@ is_odd(list)
 # In[104]:
 
 
-input_list_1 = [1,2,1,3,2,1]
-input_list_2 = [1,2,1,3,2,1]
+#input_list_1 = [1,2,1,3,2,1]
+#input_list_2 = [1,2,1,3,2,1]
 def element_wise_sum(input_list_1, input_list_2):
     wise_sum = []
     for idx, x in enumerate(input_list_1):
         wise_sum.append(x+input_list_2[idx])
     return wise_sum
             
-element_wise_sum(input_list_1,input_list_2)
+#element_wise_sum(input_list_1,input_list_2)
 
 
 # In[105]:
@@ -87,20 +87,20 @@ element_wise_sum(input_list_1,input_list_2)
 
 # In[153]:
 
-
+"""
 thisdict = {
   "FistName": "Levente",
   "LastName": "Bihari",
   "BirthYear": 2001,
   "Sex": "Male"}
-
+"""
 def dict_to_list(input_dict):
     tuple_list = []   
     for x, y in input_dict.items():
         tuple_list.append((x,y))
     return tuple_list
             
-dict_to_list(thisdict)
+#dict_to_list(thisdict)
 
 
 # In[ ]:
