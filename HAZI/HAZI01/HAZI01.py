@@ -150,7 +150,7 @@ def reverse_tuples(input_list):
 
 #Create a function that removes duplicates from a list
 #return type: list
-#fucntion name must be: remove_tuplicates
+#fucntion name must be: remove_duplicates
 #input parameters: input_list
 
 
@@ -159,14 +159,14 @@ def reverse_tuples(input_list):
 
 #list = [2,6,3,3,2,1,4,5,4,6]
 
-def remove_tuplicates(input_list):
+def remove_duplicates(input_list):
     for i, x in enumerate(input_list):
         for j, y in enumerate(input_list):
             if (i != j):
                 if (input_list[i] == input_list[j]):
                     input_list.pop(j)
     return input_list            
-#remove_tuplicates(list)
+#remove_duplicates(list)
 
 
 # In[ ]:
@@ -206,22 +206,14 @@ def transpose(input_list):
 # In[341]:
 
 
-#list = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+
+#list = [0,1,2,3,4,5,6,7,8,9]
 
 def split_into_chunks(input_list,chunk_size):
-    listElementCount = 0
-    for x in input_list:
-        listElementCount += len(x)
-    row = int(listElementCount / chunk_size) + (listElementCount % chunk_size > 0)
-    column = chunk_size
-    splittedList = [[0 for x in range(row)] for y in range(column)]
-    for i, x in enumerate(input_list):
-        for j, y in enumerate(x):
-            id = i*len(input_list[i-1])+j
-            splittedListRow = int(id/row)
-            splittedListColumn = int(id%row)
-            splittedList[splittedListRow][splittedListColumn] = input_list[i][j]
-                
+    onechunkSize = int(len(input_list) / chunk_size) + (len(input_list) % chunk_size > 0)
+    splittedList = [[] for i in range(chunk_size)]
+    for idx, x in enumerate(input_list):
+        splittedList[int(idx/onechunkSize)].append(input_list[idx])
     return splittedList
 
 #split_into_chunks(list,2)
@@ -238,34 +230,32 @@ def split_into_chunks(input_list,chunk_size):
 
 # In[96]:
 
-""""
-dict1 = {
-  "Brand": "Ford",
-  "Model": "Mustang",
-  "Year": 2000
+"""
+namesDict = {
+  "FirstName": "Levente",
+  "LastName": "Bihari"
 }
 
-dict2 = {
-  "Brand": "Toyota",
-  "Model": "Supra",
-  "Year": 1990
+sexAgeDict = {
+  "Sex": "Male",
+  "Age": "22"
 }
 
-dict3 = {
-  "Brand": "Nissan",
-  "Model": "Gtr",
-  "Year": 1995
+hairEyeDict = {
+  "Hair": "Brown",
+  "Eye": "Blue"
 }
 """
 
 def merge_dicts(*dict):
-    merged_Dict = []
-    for d in dict:
-        for x, y in d.items():
-            merged_Dict.append([x,y])
-    return merged_Dict
+  merged_Dict = {}
+  for dict in dict:
+    for d,y in dict.items():
+      merged_Dict[d] = y
     
-#merge_dicts(dict1, dict2, dict3)
+  return merged_Dict
+    
+#merge_dicts(namesDict, sexAgeDict, hairEyeDict)
 
 
 # In[10]:
