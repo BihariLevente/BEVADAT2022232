@@ -20,8 +20,7 @@ import numpy as np
 #sizesTuple = (3,3)
 
 def create_array(input_tuple = (2,2)):
-    arr = np.zeros(input_tuple)
-    return arr
+    return np.zeros(input_tuple)
     
 #create_array(sizesTuple)
 
@@ -49,9 +48,8 @@ def set_one(input_array):
 # %%
 #matrix = np.array([[1, 2], [3, 4]])
 
-def do_transpose(matrix):
-    transposedMatrix = matrix.transpose()
-    return transposedMatrix
+def do_transpose(input_array):
+    return input_array.transpose()
 
 #do_transpose(matrix)
 
@@ -64,11 +62,10 @@ def do_transpose(matrix):
 # %%
 #array = np.array([0.1223, 0.1675])
 
-def round_array(matrix , asd = 2):
-    roundedArray = np.round(matrix,asd)
-    return roundedArray
+def round_array(matrix , rnd = 2):
+    return np.round(matrix,rnd)
 
-#round_array(array,3)
+#round_array(array,2)
 
 # %%
 # Készíts egy olyan függvényt, ami a bementként kapott 0 és 1 ből álló tömben a 0 - False-ra, az 1 True-ra cserélni
@@ -77,6 +74,13 @@ def round_array(matrix , asd = 2):
 # bool_array()
 
 # %%
+#array = np.array([[1, 0, 0], [1, 1, 1],[0, 0, 0]])
+
+def bool_array(zeroOneArray):
+    zeroOneArray = np.array(zeroOneArray,dtype='bool')
+    return zeroOneArray
+
+#bool_array(array)
 
 
 # %%
@@ -86,7 +90,12 @@ def round_array(matrix , asd = 2):
 # invert_bool_array()
 
 # %%
+#array = np.array([[1, 0, 0], [1, 1, 1],[0, 0, 0]])
 
+def invert_bool_array(zeroOneArray):
+    return np.invert(np.array(zeroOneArray,dtype='bool'))
+
+#invert_bool_array(array)
 
 # %%
 # Készíts egy olyan függvényt ami a paraméterként kapott array-t kilapítja
@@ -94,6 +103,14 @@ def round_array(matrix , asd = 2):
 # Ki: [1,2,3,4]
 # flatten()
 
+
+# %%
+#array = np.array([[1, 0, 0], [1, 1, 1],[0, 0, 0]])
+
+def flatten(array):
+    return np.ndarray.flatten(array)
+
+#flatten(array)
 
 # %%
 
