@@ -19,7 +19,7 @@ import numpy as np
 #array = np.array([[1,2,3],[4,5,6]])
 
 def column_swap(input_array):
-    input_array[:,[0, 1]] = input_array[:,[1, 0]]
+    input_array[:,[0, len(input_array[0])-1]] = input_array[:,[len(input_array[0])-1, 0]]
     return input_array
 
 #column_swap(array)
@@ -33,13 +33,13 @@ def column_swap(input_array):
 # egyenlő elemszámúakra kell csak hogy működjön
 
 # %%
-#a = np.array([7,8,9,4,3])
-#b = np.array([9,8,7,4,3])
+a = np.array([7,8,9])
+b = np.array([9,8,7])
 
 def compare_two_array(aArray, bArray):
-    return np.where(np.equal(aArray, bArray) != False)[0]
+    return np.array(np.where(np.equal(aArray, bArray) != False)[0].tolist())
 
-#compare_two_array(a,b)
+compare_two_array(a,b)
 
 # %%
 # Készíts egy olyan függvényt, ami vissza adja string-ként a megadott array dimenzióit:
@@ -49,11 +49,11 @@ def compare_two_array(aArray, bArray):
 # 3D-vel még műküdnie kell!, 
 
 # %%
-#array = np.array([[[1,2,3], [4,5,6]]])
+#array = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
 
 def get_array_shape(input_array):
     shapes = np.shape(input_array)
-    return "sor: {sor}, oszlop: {oszlop}, melyseg: {melyseg}".format(sor = shapes[1], oszlop = shapes[2], melyseg = shapes[0])
+    return "sor: {sor}, oszlop: {oszlop}, melyseg: {melyseg}".format(sor=shapes[0], oszlop=shapes[1], melyseg=shapes[2] if len(shapes) == 3 else 0)
 
 #get_array_shape(array)
 
@@ -70,7 +70,7 @@ def get_array_shape(input_array):
 
 def encode_Y(input_array, number):
     encodedArray = np.zeros((number,number))
-    encodedArray[input_array[0:4], input_array[input_array[0:4]]] = 1
+    encodedArray[input_array[0:number], input_array[input_array[0:number]]] = 1
     return encodedArray
 
 #encode_Y(array, 4)
@@ -109,16 +109,16 @@ def eval_classification(input_list, input_array):
 # Készíts egy olyan függvényt, ahol az 1D array-ben a páratlan számokat -1-re cseréli
 # Be: [1,2,3,4,5,6]
 # Ki: [-1,2,-1,4,-1,6]
-# repalce_odd_numbers()
+# replace_odd_numbers()
 
 # %%
 #numbers = np.array([1,2,3,4,5,6])
 
-def repalce_odd_numbers(input_array):
+def replace_odd_numbers(input_array):
     input_array[input_array%2 == 1] *= -1 
     return input_array
 
-#repalce_odd_numbers(numbers)
+#replace_odd_numbers(numbers)
 
 # %%
 # Készíts egy olyan függvényt, ami egy array értékeit -1 és 1-re változtatja, attól függően, hogy az adott elem nagyobb vagy kisebb a paraméterként megadott számnál.
@@ -203,12 +203,13 @@ def list_days(start_date, end_date):
 # Írj egy fügvényt ami vissza adja az aktuális dátumot az alábbi formában: YYYY-MM-DD. Térjen vissza egy 'numpy.datetime64' típussal.
 # Be:
 # Ki: 2017-03-24
+# get_act_date()
 
 # %%
-def currentDate():
+def get_act_date():
     return np.datetime64('today')
 
-#currentDate()
+#get_act_date()
 
 # %%
 # Írj egy olyan függvényt ami visszadja, hogy mennyi másodperc telt el 1970 január 01. 00:02:00 óta. Int-el térjen vissza
@@ -219,9 +220,9 @@ def currentDate():
 # %%
 def sec_from_1970():
     currentDate = np.datetime64('now')
-    fromDate = '1970-01-01 02:00:00'
+    fromDate = '1970-01-01 00:02:00'
     return (np.datetime64(currentDate) - np.datetime64(fromDate)).astype(int)
 
-#sec_from_1970()
+sec_from_1970()
 
 
