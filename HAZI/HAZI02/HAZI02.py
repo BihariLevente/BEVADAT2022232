@@ -32,13 +32,13 @@ def column_swap(input_array):
 # egyenlő elemszámúakra kell csak hogy működjön
 
 # %%
-a = np.array([7,8,9])
-b = np.array([9,8,7])
+#a = np.array([7,8,9])
+#b = np.array([9,8,7])
 
 def compare_two_array(aArray, bArray):
     return np.array(np.where(np.equal(aArray, bArray) != False)[0].tolist())
 
-compare_two_array(a,b)
+#compare_two_array(a,b)
 
 # %%
 # Készíts egy olyan függvényt, ami vissza adja string-ként a megadott array dimenzióit:
@@ -48,7 +48,7 @@ compare_two_array(a,b)
 # 3D-vel még műküdnie kell!, 
 
 # %%
-array = np.array([[1,2,3],[1,2,3]])
+#array = np.array([[1,2,3],[1,2,3]])
 
 def get_array_shape(input_array):
     
@@ -62,7 +62,7 @@ def get_array_shape(input_array):
     else:
         return "error"
 
-get_array_shape(array)
+#get_array_shape(array)
 
 # %%
 # Készíts egy olyan függvényt, aminek segítségével elő tudod állítani egy neurális hálózat tanításához szükséges pred-et egy numpy array-ből. 
@@ -73,7 +73,7 @@ get_array_shape(array)
 # encode_Y()
 
 # %%
-array = np.array([1, 2, 0, 3])
+#array = np.array([1, 2, 0, 3])
 
 def encode_Y(input_array, number):
     #encodedArray = np.zeros((number,number))
@@ -83,7 +83,7 @@ def encode_Y(input_array, number):
     encodedArray[np.arange(len(input_array)), input_array] = 1
     return encodedArray
 
-encode_Y(array, 4)
+#encode_Y(array, 4)
 
 # %%
 # A fenti feladatnak valósítsd meg a kiértékelését. Adj meg a 2d array-t és adj vissza a decodolt változatát
