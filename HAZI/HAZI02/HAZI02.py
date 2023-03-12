@@ -16,11 +16,10 @@ import numpy as np
 # column_swap()
 
 # %%
-#array = np.array([[1,2,3],[4,5,6]])
+#array = np.array([[1,2,3,4],[5,6,7,8]])
 
-def column_swap(input_array):
-    input_array[:,[0, len(input_array[0])-1]] = input_array[:,[len(input_array[0])-1, 0]]
-    return input_array
+def column_swap(input_array): 
+    return np.fliplr(input_array)
 
 #column_swap(array)
 
@@ -49,13 +48,21 @@ compare_two_array(a,b)
 # 3D-vel még műküdnie kell!, 
 
 # %%
-#array = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+array = np.array([[1,2,3],[1,2,3]])
 
 def get_array_shape(input_array):
+    
     shapes = np.shape(input_array)
-    return "sor: {sor}, oszlop: {oszlop}, melyseg: {melyseg}".format(sor=shapes[0], oszlop=shapes[1], melyseg=shapes[2] if len(shapes) == 3 else 0)
+    if len(shapes) == 1:
+        return "sor: {sor}".format(sor=shapes[0])
+    elif len(shapes) == 2:
+        return "sor: {sor}, oszlop: {oszlop}".format(sor=shapes[0], oszlop=shapes[1])
+    elif len(shapes) == 3:
+        return "sor: {sor}, oszlop: {oszlop}, melyseg: {melyseg}".format(sor=shapes[0], oszlop=shapes[1], melyseg=shapes[2])
+    else:
+        return "error"
 
-#get_array_shape(array)
+get_array_shape(array)
 
 # %%
 # Készíts egy olyan függvényt, aminek segítségével elő tudod állítani egy neurális hálózat tanításához szükséges pred-et egy numpy array-ből. 
@@ -66,14 +73,17 @@ def get_array_shape(input_array):
 # encode_Y()
 
 # %%
-#array = np.array([1, 2, 0, 3])
+array = np.array([1, 2, 0, 3])
 
 def encode_Y(input_array, number):
-    encodedArray = np.zeros((number,number))
-    encodedArray[input_array[0:number], input_array[input_array[0:number]]] = 1
+    #encodedArray = np.zeros((number,number))
+    #encodedArray[input_array[0:number], input_array[input_array[0:number]]] = 1
+    
+    encodedArray = np.zeros((len(input_array), number))
+    encodedArray[np.arange(len(input_array)), input_array] = 1
     return encodedArray
 
-#encode_Y(array, 4)
+encode_Y(array, 4)
 
 # %%
 # A fenti feladatnak valósítsd meg a kiértékelését. Adj meg a 2d array-t és adj vissza a decodolt változatát
