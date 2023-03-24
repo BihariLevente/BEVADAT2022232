@@ -104,7 +104,7 @@ def average_scores(df_data):
 
     return df_average_scores
 
-average_scores(csv_to_df("C:/Users/Bihari Levente/Downloads/StudentsPerformance.csv"))
+#average_scores(csv_to_df("C:/Users/Bihari Levente/Downloads/StudentsPerformance.csv"))
 
 # %%
 '''
@@ -147,7 +147,7 @@ def female_top_score(df_data) -> tuple:
     bestFameleScores = (topScoredFemale["math score"], topScoredFemale["reading score"], topScoredFemale["writing score"])
     return bestFameleScores
 
-female_top_score(csv_to_df("C:/Users/Bihari Levente/Downloads/StudentsPerformance.csv"))
+#female_top_score(csv_to_df("C:/Users/Bihari Levente/Downloads/StudentsPerformance.csv"))
 
 # %%
 '''
