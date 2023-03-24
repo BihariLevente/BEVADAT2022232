@@ -119,10 +119,10 @@ függvény neve: add_age
 
 # %%
 import random
-random.seed(42)
 
 def add_age(df_data):
     df_data_with_age = df_data.copy()
+    random.seed(42)
     df_data_with_age["age"] = [random.randint(18,66) for _ in range(len(df_data_with_age))]
 
     return df_data_with_age
