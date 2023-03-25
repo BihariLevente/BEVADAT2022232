@@ -118,14 +118,14 @@ függvény neve: add_age
 '''
 
 # %%
-import random
-
 def add_age(df_data):
     df_data_with_age = df_data.copy()
-    random.seed(42)
-    df_data_with_age["age"] = [random.randint(18,66) for _ in range(len(df_data_with_age))]
+    np.random.seed(42)
+    df_data_with_age["age"] = [np.random.randint(18,67) for _ in range(len(df_data_with_age))]
 
     return df_data_with_age
+
+#add_age(csv_to_df("C:/Users/Bihari Levente/Downloads/StudentsPerformance.csv"))
 
 #add_age(csv_to_df("C:/Users/Bihari Levente/Downloads/StudentsPerformance.csv"))
 
