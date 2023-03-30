@@ -11,7 +11,7 @@ class KNNClassifier:
         self.test_split_ratio = test_split_ratio
     
     @staticmethod
-    def load_csv(self, csv_path:str) -> Tuple[pd.DataFrame , pd.DataFrame]:
+    def load_csv(csv_path:str) -> Tuple[pd.DataFrame , pd.DataFrame]:
         dataset = pd.read_csv(csv_path, delimiter=',')
         dataset = dataset.sample(frac=1, random_state=42).reset_index(drop=True)
         x,y = dataset.iloc[:,:4], dataset.iloc[:,-1]
@@ -50,5 +50,5 @@ class KNNClassifier:
         return conf_matrix
 
     @property
-    def k_neighbours(self):
+    def k_neighbors(self):
         return self.k

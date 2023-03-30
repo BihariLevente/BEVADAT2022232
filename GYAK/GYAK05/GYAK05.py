@@ -11,7 +11,7 @@ class KNNClassifier:
 
     
     @staticmethod
-    def load_csv(self, csv_path:str) -> Tuple[np.ndarray,np.ndarray]:
+    def load_csv(csv_path:str) -> Tuple[np.ndarray,np.ndarray]:
         np.random.seed(42)
         dataset = np.genfromtxt(csv_path,delimiter=',')
         np.random.shuffle(dataset,)
@@ -50,5 +50,5 @@ class KNNClassifier:
         return conf_matrix
 
     @property
-    def k_neighbours(self):
+    def k_neighbors(self):
         return self.k
