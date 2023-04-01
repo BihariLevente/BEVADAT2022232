@@ -1,0 +1,33 @@
+1 - k_neighbors: Visszaadja a k-t.
+
+2 - load_csv: A csv beolvasása után, kever azon egyet. Ezek után x nevű változóka eltárolja
+az első n-1 oszlop adatait (bemenetek), az utolsó oszlop adatait pedig y-ba (kimenetek) menti.
+
+3 - train_test_split: Az adatbázist a megadott arányba szétbontja tanító és teszt adatokra.
+Rendelkezésre álló adatokból fontos "félretennünk" a hálózat teszteléséhez. Ez azért fontos, hogy
+a hálózatot olyan adatokkal tudjuk tesztelni, amikkel még nem találkozott. 
+Teszteléskor felmerülő problémára példa: overfitting/túltanulás
+
+4 - euclidean: Ezen függvény a self.x_train és a element_of_x közötti távolságot/hibát (loss)-t 
+számolja ki.
+
+5 - predict: A program lényege, amely a tesztadatok alapján kiszámolja a kimeneteket. Ebben a
+függvényben használjuk az euklideszi távolságot számoló függvényünket.
+ 
+6 - accuracy: Helyesen tippelt "jóslatok" arányát adja meg százalékosan.
+
+7 - confusion_matrix: Létrehoz egy konfúziós mátrixot a teszt kimenetek és az általunk
+jósolt kimenetek alapján, amely megmutatja hogy hány igaz/fals pozitív és igaz/fals 
+negatív volt köztük.
+
+
+8 - best_k: A függvény elején létrehozok egy tuple-t aminek első paraméterként 
+(legjobb elem indexe vagyis a legjobb k) 0-ás kezdőértéket, második paraméterének 
+(k-hoz tartozó true_pozitív arány) pedig negatív végtelent adtam. Ezek után a k-t 
+beállítottam 1-re (ezt használtam a while ciklusba indexelésre is). While ciklus
+20-as k értékkel fut le utoljára. While ciklus elején meghívom a predict függvényt,
+az aktuálisan vizsgált "jóságnak" pedig a accuracy függvény által visszadott értéket
+adom. Ezek után pedig csak egy sima maximum kiválasztással megnézem hogy a jelenleg
+vizsgált accuracy jobb-e mint az eddig talált legjobb. Ha jobb, akkor a függvény
+elején létrehozott tuple-be eltárolom az adatokat, k-t növelem egyel. While ciklus
+után visszadom a legjobb elempárost.
