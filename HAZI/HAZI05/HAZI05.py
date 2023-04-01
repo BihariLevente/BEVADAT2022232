@@ -47,6 +47,18 @@ class KNNClassifier:
     def confusion_matrix(self) -> np.ndarray:
         conf_matrix = confusion_matrix(self.y_test,self.y_preds)
         return conf_matrix
+    
+    def best_k(self) -> Tuple[int, float]:
+        best_accuracy_idx = (0, -float("inf"))
+        self.k = 1
+        while self.k <= 20:
+            self.predict(self.x_test)
+            current_accuracy = self.accuracy()
+            if best_accuracy_idx[1] < current_accuracy:
+                best_accuracy_idx[0] = self.k
+                best_accuracy_idx[1] = round(current_accuracy,2)
+            self.k += 1
+        return best_accuracy_idx
 
     @property
     def k_neighbors(self):
