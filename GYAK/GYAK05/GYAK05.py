@@ -32,7 +32,7 @@ class KNNClassifier:
     def euclidean(self, element_of_x: np.ndarray) -> np.ndarray:
         return np.sqrt(np.sum((self.x_train - element_of_x)**2,axis=1))
 
-    def predict(self, x_test:np.ndarray) -> np.ndarray:
+    def predict(self, x_test:np.ndarray):
         labels_pred = []
         for x_test_element in x_test:
             distances = self.euclidean(x_test_element)
