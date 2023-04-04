@@ -35,8 +35,8 @@ class KNNClassifier:
         labels_pred = []
         for x_test_element in x_test.values:
             distances = self.euclidean(x_test_element)
-            distances_df = pd.DataFrame(zip(distances,self.y_train)).sort_values(by='distance')
-            label_pred = mode(distances_df[:self.k,1],keepdims=False).mode
+            distances_df = (pd.DataFrame({'distances': distances, 'labels': self.y_train})).sort_values(by='distances')
+            label_pred = mode(distances_df.iloc[:self.k,1],keepdims=False).mode
             labels_pred.append(label_pred)
         self.y_preds = pd.DataFrame(labels_pred,dtype=pd.int32)
     
