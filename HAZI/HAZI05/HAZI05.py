@@ -38,7 +38,7 @@ class KNNClassifier:
             distances_df = (pd.DataFrame({'distances': distances, 'labels': self.y_train})).sort_values(by='distances')
             label_pred = mode(distances_df.iloc[:self.k,1],keepdims=False).mode
             labels_pred.append(label_pred)
-        self.y_preds = pd.DataFrame(labels_pred,dtype=pd.int32)
+        self.y_preds = pd.DataFrame(labels_pred)
     
     def accuracy(self) -> float:
         true_positive = (self.y_test == self.y_preds).sum()
@@ -49,7 +49,7 @@ class KNNClassifier:
         return conf_matrix
     
     def best_k(self) -> Tuple[int, float]:
-        best_accuracy_idx = (0, -float("inf"))
+        best_accuracy_idx = [0, -float("inf")]
         self.k = 1
         while self.k <= 20:
             self.predict(self.x_test)
@@ -58,7 +58,7 @@ class KNNClassifier:
                 best_accuracy_idx[0] = self.k
                 best_accuracy_idx[1] = round(current_accuracy,2)
             self.k += 1
-        return best_accuracy_idx
+        return (best_accuracy_idx[0], best_accuracy_idx[1])
 
     @property
     def k_neighbors(self):
