@@ -35,16 +35,18 @@ class KNNClassifier:
         labels_pred = []
         for x_test_element in x_test.values:
             distances = self.euclidean(x_test_element)
-            distances_df = (pd.DataFrame({'distances': distances, 'labels': self.y_train})).sort_values(by='distances')
-            label_pred = mode(distances_df.iloc[:self.k,1],keepdims=False).mode
-            labels_pred.append(label_pred[0])
-        self.y_preds = pd.Series(labels_pred)
+            #distances_df = pd.DataFrame({'distances': distances, 'labels': self.y_train})
+            distances_df = pd.DataFrame({distances, self.y_train})
+            distances_df.sort_values(by=[0], inplace=True)
+            label_pred = distances_df[1].iloc[:self.k].mode()[0]
+            labels_pred.append(label_pred)
+        self.y_preds = pd.Series(labels_pred,dtype=np.int32)
     
     def accuracy(self) -> float:
         true_positive = (self.y_test == self.y_preds).sum()
         return true_positive / len(self.y_test) * 100
     
-    def confusion_matrix(self) -> np.ndarray:
+    def confusion_matrix(self) -> pd.DataFrame:
         conf_matrix = confusion_matrix(self.y_test,self.y_preds)
         return conf_matrix
     
