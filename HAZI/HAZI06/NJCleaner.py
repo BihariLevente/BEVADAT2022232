@@ -47,21 +47,21 @@ class NJCleaner:
     
         return clean_df
     
-    def save_first_60k(self, to_csv_path: str) -> pd.DataFrame: 
+    def save_first_60k(self, path: str) -> pd.DataFrame: 
         copy_df = self.data.copy()
         first60k_df = copy_df.iloc[:60000].copy()
-        first60k_df.to_csv(to_csv_path, index=False)
+        first60k_df.to_csv(path, index=False)
 
         return first60k_df
 
-    def prep_df(self, to_csv_path: str = "data/NJ.csv"):
+    def prep_df(self, path: str = "data/NJ.csv"):
         self.data = self.order_by_scheduled_time()
         self.data = self.drop_columns_and_nan()
         self.data = self.convert_date_to_day()
         self.data = self.convert_scheduled_time_to_part_of_the_day()
         self.data = self.convert_delay()
         self.data = self.drop_unnecessary_columns()
-        self.data = self.save_first_60k(to_csv_path)
+        self.data = self.save_first_60k(path)
 
 #print(os.getcwd())
 #print(os.getcwd()+"\\BEVADAT2022232\\HAZI\HAZI06\\NJ Transit + Amtrak.csv")
