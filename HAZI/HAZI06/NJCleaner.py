@@ -31,7 +31,8 @@ class NJCleaner:
         withpartofday_df = self.data.copy()
         withpartofday_df["hour"] = pd.to_datetime(withpartofday_df["scheduled_time"]).dt.hour
         withpartofday_df["part_of_the_day"] = withpartofday_df["hour"].apply(lambda x: 'late_night' if x < 4 else 'early_morning' if x < 8 else 'morning' if x < 12 else 'afternoon' if x < 16 else 'evening' if x < 20 else 'night')
-        withpartofday_df = withpartofday_df.drop('hour', axis=1)
+        withpartofday_df = withpartofday_df.drop("scheduled_time", axis = 1)
+        withpartofday_df = withpartofday_df.drop("hour", axis=1)
 
         return withpartofday_df
     
@@ -43,7 +44,7 @@ class NJCleaner:
     
     def drop_unnecessary_columns(self) -> pd.DataFrame: 
         clean_df = self.data.copy()
-        clean_df = clean_df.drop(['train_id', 'scheduled_time', 'actual_time', 'delay_minutes'], axis=1)
+        clean_df = clean_df.drop(["train_id", "actual_time", "delay_minutes"], axis=1)
     
         return clean_df
     
