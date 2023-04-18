@@ -29,7 +29,6 @@ class LinearRegression:
         self.losses = []
         for i in range(self.epochs): 
             y_pred = self.m*self.X_train + self.c  # The current predicted value of Y
-
             residuals = y_pred - self.y_train
             loss = np.sum(residuals ** 2)
             self.losses.append(loss)
@@ -37,14 +36,15 @@ class LinearRegression:
             D_c = (-2/n) * sum(residuals)  # Derivative wrt c
             self.m = self.m + self.learning_rate * D_m  # Update m
             self.c = self.c + self.learning_rate * D_c  # Update c
-            if i % 100 == 0:
+            #if i % 100 == 0:
                 #print(np.mean(self.y_train-y_pred))
-                print(loss)
+                #print(loss)
+        return self.losses
 
     def predict(self, X):
-        pred = []
+        self.pred = []
         for x in X:
             y_pred = self.m*x + self.c
-            pred.append(y_pred)
-        
-        return pred
+            self.pred.append(y_pred)
+        print(self.pred)
+        return self.pred
