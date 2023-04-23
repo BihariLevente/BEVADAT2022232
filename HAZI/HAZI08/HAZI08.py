@@ -43,3 +43,17 @@ def train_logistic_regression(X_train, y_train) -> LogisticRegression: #error wi
 
 def predict(model , X_test) -> np.ndarray:
     return model.predict(X_test)
+
+def plot_actual_vs_predicted(y_test, y_pred) -> plt.Figure:
+    fig, ax = plt.subplots()
+    ax.set_title('Actual vs Predicted Target Values')
+    ax.set_xlabel('Actual')
+    ax.set_ylabel('Predicted')
+    ax.scatter(y_test, y_pred, color='blue')
+    min, max = y_test.min(), y_test.max()
+    ax.plot([min, max], [min, max], color='red')
+    return fig
+
+def evaluate_model(y_test, y_pred) -> float:
+    mse = mean_squared_error(y_test,y_pred)
+    return mse
