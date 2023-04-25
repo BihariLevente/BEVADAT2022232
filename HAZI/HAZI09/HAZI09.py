@@ -18,7 +18,7 @@ class KMeansOnDigits():
         self.digits =  datasets.load_digits()
 
     def predict(self):
-        kmeans = KMeans(n_clusters = self.n_clusters, random_state= self.random_state)
+        kmeans = KMeans(n_clusters = self.n_clusters, random_state = self.random_state)
         self.clusters = kmeans.fit_predict(self.digits.data)
 
     def get_labels(self) -> np.ndarray:
@@ -37,9 +37,3 @@ class KMeansOnDigits():
 
     def confusion_matrix(self):
         self.mat = confusion_matrix(self.digits.target, self.get_labels(self.preds, self.digits))
-        sns.heatmap(self.mat, annot=True, fmt='d')
-        plt.title('Digits confusion matrix')
-        plt.xlabel('Predicted label')
-        plt.ylabel('True label')
-        plt.show()
-        return self.mat
