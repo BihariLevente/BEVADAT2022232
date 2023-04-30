@@ -33,7 +33,7 @@ class KMeansOnDigits():
         self.labels = result_array
 
     def calc_accuracy(self):
-        self.accuracy = np.round(accuracy_score(self.digits.target, self.get_labels()),2)
+        self.accuracy = np.round(accuracy_score(self.digits.target, self.labels),2)
 
     def confusion_matrix(self):
-        self.mat = confusion_matrix(self.digits.target, self.get_labels())
+        self.mat = confusion_matrix(self.digits.target, self.labels)
