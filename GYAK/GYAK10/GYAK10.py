@@ -34,7 +34,7 @@ class ReLU():
     def forward_pass(self, x):
         return np.where(x >= 0, x, 0)
 
-
+"""
 input_data = np.array([[1, 2, 3, 4, 5]])
 layer = Dense(3, n_input=5)
 output = layer.forward_pass(input_data)
@@ -42,3 +42,4 @@ print(output)
 
 activation = ReLU()
 print(activation.forward_pass(output))
+"""
